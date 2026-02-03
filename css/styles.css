@@ -64,13 +64,13 @@ body {
 }
 
 .contact-item a {
-    color: #2d8ed6;
+    color: #6bcf63;
     text-decoration: none;
 }
 
 .icon {
     font-size: 20px;
-    color: #2d8ed6;
+    color: #6bcf63;
     flex-shrink: 0;
 }
 
@@ -98,7 +98,7 @@ body {
 }
 
 .nav {
-    background: #122a3a;
+    background: #171717;
     max-width: 1200px;
     margin: -55px auto 0;
     padding: 0 10px;
@@ -131,11 +131,11 @@ body {
 
 
 .menu li a:hover {
-    color: #2d8ed6;
+    color: #6bcf63;
 }
 
 .request-btn {
-    background: #2d8ed6;
+    background: #6bcf63;
     color: #fff;
     padding: 19px 29px;
     text-decoration: none;
@@ -145,12 +145,11 @@ body {
 }
 
 .request-btn:hover {
-    background: #1a7bc9;
+    background: #6bcf63;
 }
 
 .logo {
     position: relative;
-    background: #3aa0dc;
     padding: 20px;
     padding-left: calc(50vw - 50% + 40px);
     padding-top: calc(49px + 20px);
@@ -166,7 +165,6 @@ body {
     right: -100px;
     width: 140px;
     height: 100%;
-    background: #3aa0dc;
     transform: skewX(-35deg);
     z-index: 1;
     pointer-events: none;
@@ -468,7 +466,7 @@ body {
 }
 
 .details-btn {
-    background: #2d8ed6;
+    background: #6bcf63;
     color: white;
     padding: 12px 30px;
     text-decoration: none;
@@ -689,7 +687,7 @@ body {
 }
 
 .service-link {
-    color: #2d8ed6;
+    color: #6bcf63;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
@@ -803,7 +801,7 @@ body {
     color: #122a3a;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #2d8ed6;
+    border-bottom: 2px solid #6bcf63;
 }
 
 .about-history p {
@@ -845,7 +843,7 @@ body {
     padding: 40px;
     border-radius: 8px;
     margin-top: 60px;
-    border-left: 4px solid #2d8ed6;
+    border-left: 4px solid #6bcf63;
 }
 
 .quote-text {
@@ -964,7 +962,7 @@ body {
     color: #122a3a;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #2d8ed6;
+    border-bottom: 2px solid #6bcf63;
 }
 
 .about-services p,
@@ -1002,7 +1000,7 @@ body {
 .highlight {
     background: #edf7ff;
     padding: 20px;
-    border-left: 4px solid #2d8ed6;
+    border-left: 4px solid #6bcf63;
     font-size: 17px;
     line-height: 1.7;
     color: #122a3a;
@@ -1027,7 +1025,7 @@ body {
 
 .filters-list li:before {
     content: "•";
-    color: #2d8ed6;
+    color: #6bcf63;
     font-size: 20px;
     font-weight: bold;
     position: absolute;
@@ -1300,7 +1298,7 @@ body {
     }
 }
 .cta-section {
-    background: #2d8ed6;
+    background: #6bcf63;
     color: white;
     padding: 30px 0;
 }
@@ -1422,7 +1420,7 @@ body {
 }
 
 .menu li.active a {
-    color: #2d8ed6;
+    color: #6bcf63;
 }
 
 .footer-links li.active a {
