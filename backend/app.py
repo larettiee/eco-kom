@@ -12,13 +12,12 @@ DB_CONFIG = {
     "host": "localhost",
     "database": "eco_kom_db",
     "user": "postgres",
-    "password": "admin",
+    "password": " ", #ВВЕДИТЕ ПАРОЛЬ ОТ СВОЕЙ БД
     "port": "5432"
 }
 
 
 def get_db_connection():
-    """Подключение к PostgreSQL"""
     return psycopg2.connect(**DB_CONFIG)
 
 
@@ -33,7 +32,6 @@ def log_chat_message():
 
         # Автоматически определяем тип запроса
         request_type = None
-        product_category = None
 
         text_lower = message_text.lower()
 
@@ -49,13 +47,6 @@ def log_chat_message():
         elif any(word in text_lower for word in ['консульт', 'помощь', 'подобрать']):
             request_type = 'consultation'
 
-        # Определяем категорию продукта
-        if any(word in text_lower for word in ['вентиляц', 'воздух', 'фильтр карман']):
-            product_category = 'ventilation'
-        elif any(word in text_lower for word in ['кондицион', 'охлажден', 'фильтр кассет']):
-            product_category = 'conditioning'
-        elif any(word in text_lower for word in ['рукав', 'аспирац', 'фильтр рукав']):
-            product_category = 'sleeve'
 
         # Сохраняем в БД
         conn = get_db_connection()
@@ -63,16 +54,15 @@ def log_chat_message():
 
         cur.execute("""
             INSERT INTO chat_log 
-            (session_id, message_text, sender_type, request_type, product_category,
+            (session_id, message_text, sender_type, request_type,
              user_name, user_phone, user_email)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
             RETURNING id
         """, (
             session_id,
             message_text[:1000],
             sender_type,
             request_type,
-            product_category,
             data.get('user_name'),
             data.get('user_phone'),
             data.get('user_email')
@@ -90,7 +80,6 @@ def log_chat_message():
             "log_id": log_id,
             "classified": {
                 "request_type": request_type,
-                "product_category": product_category
             }
         })
 
@@ -105,8 +94,8 @@ def create_request():
         data = request.json
 
         # Проверяем обязательные поля
-        if not data.get('name') or not data.get('phone'):
-            return jsonify({"error": "Требуется имя и телефон"}), 400
+        if not data.get('name') or not data.get('phone') or not data.get('email'):
+            return jsonify({"error": "Заполните все поля"}), 400
 
         # Сохраняем в БД
         conn = get_db_connection()
@@ -114,17 +103,15 @@ def create_request():
 
         cur.execute("""
             INSERT INTO requests 
-            (client_name, phone, email, company, message, request_type, product_category, session_id)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            (client_name, phone, email, message, request_type, session_id)
+            VALUES (%s, %s, %s, %s, %s, %s)
             RETURNING id
         """, (
             data['name'][:100],
             data['phone'][:20],
             data.get('email', '')[:100],
-            data.get('company', '')[:100],
             data.get('message', '')[:500],
             data.get('request_type', 'callback'),
-            data.get('product_category'),
             data.get('session_id')
         ))
 
@@ -168,7 +155,7 @@ def health_check():
 @app.route('/')
 def home():
     return """
-    <h1>ECO-KOM API работает! ✅</h1>
+    <h1>ECO-KOM API работает! </h1>
     <p>Доступные эндпоинты:</p>
     <ul>
         <li>POST /api/chat/log - логирование сообщений чата</li>
@@ -182,8 +169,8 @@ def home():
 
 if __name__ == '__main__':
     print("=" * 50)
-    print("🚀 ECO-KOM API запущен!")
-    print(f"🌐 http://localhost:5000")
-    print(f"📞 API: http://localhost:5000/api/chat/log")
+    print("ECO-KOM API запущен!")
+    print(f"http://localhost:5000")
+    print(f"API: http://localhost:5000/api/chat/log")
     print("=" * 50)
     app.run(host='0.0.0.0', port=5000, debug=True)
