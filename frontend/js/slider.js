@@ -1,7 +1,6 @@
-// slider.js - безопасная версия
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    console.log('🔄 Инициализация слайдера...');
+    console.log('Инициализация слайдера...');
     
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -11,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Если нет слайдов - выходим
     if (!slides || slides.length === 0) {
-      console.log('ℹ️ Слайдер не найден на этой странице');
+      console.log('Слайдер не найден на этой странице');
       return;
     }
     
-    console.log(`✅ Найдено ${slides.length} слайдов`);
+    console.log(`Найдено ${slides.length} слайдов`);
     
     let currentSlide = 0;
     let slideInterval;
@@ -129,9 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(0);
     startAutoSlide();
     
-    console.log('✅ Слайдер инициализирован');
+    console.log('Слайдер инициализирован');
     
   } catch (error) {
-    console.error('❌ Критическая ошибка в слайдере:', error);
+    console.error('Критическая ошибка в слайдере:', error);
   }
 });
