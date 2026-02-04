@@ -1,12 +1,12 @@
 Структура проекта:
 eco-kom/
-├── backend/                 # Python Flask сервер
-│   ├── app.py             # Основное приложение
-│   └── requirements.txt   # Зависимости Python
+├── backend/
+│ ├── app.py # Flask сервер (API)
+│ └── requirements.txt # Зависимости Python
+├── frontend/ Файлы фронтенда
 ├── database/
-│   └── schema.sql         # Структура базы данных
-├── frontend/              # Файлы фронтенда
-└── README.md             # Эта документация
+│ └── schema.sql # Структура БД PostgreSQL
+├── README.md # Документация
 
 Как запустить: скачать pythom, postgresql (Запомнить пароль, который указывали при установке!).
 В cmd: 
@@ -27,12 +27,10 @@ pip install flask flask-cors psycopg2-binary python-dotenv
 python app.py
 
 Ожидаемый вывод:
-==================================================
 ECO-KOM Chatbot API запущен!
 Сервер: http://0.0.0.0:5000
 Проверка: http://localhost:5000/api/health
 Режим отладки: True
-==================================================
  * Serving Flask app 'app'
  * Debug mode: on
 
