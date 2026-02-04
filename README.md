@@ -21,6 +21,7 @@ python -m ensurepip --upgrade
 pip install -r requirements.txt
 Если ошибки, попробуйте:
 pip install flask flask-cors psycopg2-binary python-dotenv
+Зайти в файл app.py и в 15 строчке ввести пароль от postgresql
 
 Запуск сервера для работы с бд:
 Убедитесь, что вы в папке backend/ в cmd:
