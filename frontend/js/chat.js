@@ -233,7 +233,7 @@ window.showContactForm = function() {
       <input type="tel" id="fixed-contact-phone" placeholder="Телефон" 
              style="width:100%; padding:10px; margin:5px 0; border:1px solid #ddd; border-radius:5px;">
       
-      <input type="email" id="fixed-contact-email" placeholder="Email (необязательно)" 
+      <input type="email" id="fixed-contact-email" placeholder="Email" 
              style="width:100%; padding:10px; margin:5px 0; border:1px solid #ddd; border-radius:5px;">
       
       <button onclick="window.submitFixedContactForm()" 
